@@ -1,52 +1,95 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth"> <head>
+<html lang="en" class="scroll-smooth">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurivon Capital</title>
+    <title>Aurivon Capital | Global Proprietary Trading</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+
     <style>
-        /* This ensures particles stay behind your content */
+        /* Particles container setup */
         #particles-js { 
             position: absolute; 
             width: 100%; 
             height: 100%; 
             background-color: #0f172a; 
-            z-index: -1; 
+            z-index: 0; 
         }
-        .hero-section { position: relative; overflow: hidden; }
+        
+        /* Ensures text stays above the particles */
+        .content-overlay { 
+            position: relative; 
+            z-index: 10; 
+        }
+
+        .hero-section { 
+            position: relative; 
+            overflow: hidden; 
+        }
+
+        /* Custom scrollbar for a premium feel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #1e40af; border-radius: 10px; }
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-900">
 
     <nav class="p-6 bg-white border-b flex justify-between items-center sticky top-0 z-50">
-        <div class="text-2xl font-black italic tracking-tighter text-slate-900">AURIVON <span class="text-blue-600">CAPITAL</span></div>
-        <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-slate-500">
-            <a href="index.html" class="text-blue-600">Home</a>
-            <a href="about.html" class="hover:text-slate-900 transition">Memoir</a>
-            <a href="strategy.html" class="hover:text-slate-900 transition">Recruitment</a>
-            <a href="login.html" class="hover:text-slate-900 transition">Trader Login</a>
+        <div class="text-2xl font-black italic tracking-tighter text-slate-900 flex-shrink-0">
+            AURIVON <span class="text-blue-600">CAPITAL</span>
         </div>
-        <a href="https://t.me/YOUR_LINK" class="bg-slate-900 text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest">Global Desk</a>
+        
+        <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-slate-500">
+            <a href="#home" class="text-blue-600 hover:text-blue-800 transition">Home</a>
+            <a href="#market" class="hover:text-slate-900 transition">Market</a>
+            <a href="#recruitment" class="hover:text-slate-900 transition">Recruitment</a>
+            <a href="#contact" class="hover:text-slate-900 transition">Contact</a>
+        </div>
+
+        <div class="flex items-center space-x-4">
+            <a href="https://t.me/YOUR_LINK" class="bg-slate-900 text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest flex-shrink-0 hover:bg-blue-700 transition">
+                Global Desk
+            </a>
+        </div>
     </nav>
 
     <header id="home" class="relative h-[600px] flex items-center justify-center text-white hero-section">
-        <div id="particles-js"></div> <div class="content-overlay text-center px-4">
-            <h1 class="text-5xl md:text-6xl font-bold mb-4">Empowering Traders Globally</h1>
-            <p class="text-xl max-w-2xl mx-auto text-slate-300">Proprietary trading and entrepreneurship opportunities across S.E.A.</p>
+        <div id="particles-js"></div> 
+        <div class="content-overlay text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Empowering Traders <br class="hidden md:block"> Globally</h1>
+            <p class="text-xl max-w-2xl mx-auto text-slate-300 font-light">Proprietary trading and entrepreneurship opportunities across Southeast Asia.</p>
+            <div class="mt-10">
+                <a href="#recruitment" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-bold transition-all transform hover:scale-105">
+                    Start Your Evaluation
+                </a>
+            </div>
         </div>
     </header>
 
-    <section id="market" class="max-w-7xl mx-auto py-16 px-6">
-        <h2 class="text-3xl font-bold text-center mb-10 text-blue-900">Live Market Data</h2>
-        <div class="bg-white p-4 shadow-xl rounded-lg border">
+    <section id="market" class="max-w-7xl mx-auto py-20 px-6">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+            <div>
+                <h2 class="text-3xl font-bold text-blue-900">Live Market Pulse</h2>
+                <p class="text-slate-500 mt-2">Real-time data for global assets.</p>
+            </div>
+            <div class="text-xs font-mono text-slate-400 mt-4 md:mt-0">DATA REFRESHING LIVE</div>
+        </div>
+        
+        <div class="bg-white p-2 shadow-2xl rounded-2xl border border-slate-200 overflow-hidden">
             <div id="tradingview_chart"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
             <script type="text/javascript">
                 new TradingView.MediumWidget({
-                    "symbols": [["Gold", "FX_IDC:XAUUSD|1D"], ["EUR/USD", "FX:EURUSD|1D"]],
+                    "symbols": [
+                        ["Gold", "FX_IDC:XAUUSD|1D"], 
+                        ["EUR/USD", "FX:EURUSD|1D"],
+                        ["Bitcoin", "BINANCE:BTCUSDT|1D"]
+                    ],
                     "width": "100%", 
-                    "height": 450, 
+                    "height": 500, 
                     "locale": "en", 
                     "colorTheme": "light", 
                     "autosize": true, 
@@ -56,40 +99,60 @@
         </div>
     </section>
 
-    <section id="recruitment" class="bg-blue-900 text-white py-20 px-6">
+    <section id="recruitment" class="bg-blue-900 text-white py-24 px-6 relative">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">Join Aurivon Capital S.E.A.</h2>
-            <p class="mb-10 text-blue-100">Are you an entrepreneur or trader in Singapore, Malaysia, or Vietnam? We are expanding our footprint.</p>
+            <h2 class="text-4xl font-bold mb-6">Join Aurivon Capital S.E.A.</h2>
+            <p class="mb-12 text-blue-100 text-lg">We provide the capital, you provide the edge. Seeking traders in Singapore, Malaysia, and Vietnam.</p>
             
-            <div class="bg-white text-slate-900 p-8 md:p-12 rounded-2xl shadow-2xl">
-                <h3 class="text-2xl font-bold mb-4">Application Portal</h3>
-                <p class="text-gray-500 mb-8">Process your registration fee securely via Stripe to begin your evaluation.</p>
-                <a href="YOUR_STRIPE_PAYMENT_LINK_HERE" class="inline-block bg-blue-600 text-white px-12 py-4 rounded-full font-bold hover:bg-blue-700 transform hover:scale-105 transition-all">
-                    Apply Now via Stripe
+            <div class="bg-white text-slate-900 p-10 md:p-16 rounded-3xl shadow-2xl border-t-8 border-blue-500">
+                <h3 class="text-3xl font-black italic mb-4">APPLICATION PORTAL</h3>
+                <p class="text-gray-500 mb-10 max-w-md mx-auto">Complete your registration and secure your evaluation account via Stripe.</p>
+                
+                <a href="YOUR_STRIPE_PAYMENT_LINK_HERE" class="inline-block bg-blue-600 text-white px-14 py-5 rounded-full font-black uppercase tracking-widest hover:bg-slate-900 transform hover:-translate-y-1 transition-all shadow-lg">
+                    Apply via Stripe
                 </a>
+                
+                <div class="mt-8 flex justify-center space-x-6">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" class="h-6 opacity-30" alt="Stripe">
+                </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="py-12 bg-slate-900 text-center text-gray-400 text-sm">
-        <p class="mb-2">Contact: support@aurivoncapital.com</p>
-        <p>&copy; 2026 Aurivon Capital. All Rights Reserved.</p>
+    <footer id="contact" class="py-20 bg-slate-950 text-center text-slate-500">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-2xl font-black italic text-white mb-6">AURIVON CAPITAL</div>
+            <p class="mb-4">Global Trading Solutions for Modern Markets.</p>
+            <p class="text-blue-400 font-medium mb-8">support@aurivoncapital.com</p>
+            <div class="border-t border-slate-800 pt-8 text-xs uppercase tracking-widest">
+                &copy; 2026 Aurivon Capital. All Rights Reserved.
+            </div>
+        </div>
     </footer>
 
     <script>
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 80 },
-                "color": { "value": "#ffffff" },
+                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#60a5fa" },
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.5 },
-                "size": { "value": 3 },
-                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
-                "move": { "enable": true, "speed": 2 }
+                "opacity": { "value": 0.4 },
+                "size": { "value": 2 },
+                "line_linked": { 
+                    "enable": true, 
+                    "distance": 150, 
+                    "color": "#1e40af", 
+                    "opacity": 0.2, 
+                    "width": 1 
+                },
+                "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
             },
             "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "repulse" } }
-            }
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
+            },
+            "retina_detect": true
         });
     </script>
 </body>
