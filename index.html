@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" class="scroll-smooth"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aurivon Capital</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
-        #particles-js { position: absolute; width: 100%; height: 100%; background-color: #0f172a; z-index: -1; }
-        .hero-section { position: relative; overflow: hidden; }
+        /* This ensures particles stay behind your content */
+        #particles-js { 
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+            background-color: #0f172a; 
+            z-index: 0; 
+        }
+        .content-overlay { position: relative; z-index: 10; }
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-900">
@@ -17,54 +23,75 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold text-blue-900">AURIVON CAPITAL</div>
             <div class="hidden md:flex space-x-8 font-medium">
-                <a href="#home" class="hover:text-blue-600">Home</a>
-                <a href="#memoir" class="hover:text-blue-600">Memoir</a>
-                <a href="#recruitment" class="hover:text-blue-600">Recruitment</a>
-                <a href="#contact" class="hover:text-blue-600">Contact</a>
+                <a href="#home" class="hover:text-blue-600 transition">Home</a>
+                <a href="#market" class="hover:text-blue-600 transition">Market</a>
+                <a href="#recruitment" class="hover:text-blue-600 transition">Recruitment</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
             </div>
         </div>
     </nav>
 
-    <header id="home" class="relative h-[500px] flex items-center justify-center text-white">
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200" class="absolute inset-0 w-full h-full object-cover brightness-50" alt="Office">
-        <div class="relative text-center px-4">
-            <h1 class="text-5xl font-bold mb-4">Empowering Traders Globally</h1>
-            <p class="text-xl max-w-2xl mx-auto">Proprietary trading and entrepreneurship opportunities across S.E.A.</p>
+    <header id="home" class="relative h-[600px] flex items-center justify-center text-white hero-section">
+        <div id="particles-js"></div> <div class="content-overlay text-center px-4">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Empowering Traders Globally</h1>
+            <p class="text-xl max-w-2xl mx-auto text-slate-300">Proprietary trading and entrepreneurship opportunities across S.E.A.</p>
         </div>
     </header>
 
-    <section class="max-w-7xl mx-auto py-16 px-6">
-        <h2 class="text-3xl font-bold text-center mb-10">Live Market Data</h2>
+    <section id="market" class="max-w-7xl mx-auto py-16 px-6">
+        <h2 class="text-3xl font-bold text-center mb-10 text-blue-900">Live Market Data</h2>
         <div class="bg-white p-4 shadow-xl rounded-lg border">
             <div id="tradingview_chart"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
             <script type="text/javascript">
                 new TradingView.MediumWidget({
-                "symbols": [["Gold", "FX_IDC:XAUUSD|1D"], ["EUR/USD", "FX:EURUSD|1D"]],
-                "width": "100%", "height": 450, "locale": "en", "colorTheme": "light", "autosize": true, "container_id": "tradingview_chart"
+                    "symbols": [["Gold", "FX_IDC:XAUUSD|1D"], ["EUR/USD", "FX:EURUSD|1D"]],
+                    "width": "100%", 
+                    "height": 450, 
+                    "locale": "en", 
+                    "colorTheme": "light", 
+                    "autosize": true, 
+                    "container_id": "tradingview_chart"
                 });
             </script>
         </div>
     </section>
 
-    <section id="recruitment" class="bg-blue-900 text-white py-16 px-6">
+    <section id="recruitment" class="bg-blue-900 text-white py-20 px-6">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-3xl font-bold mb-6">Join Aurivon Capital S.E.A.</h2>
-            <p class="mb-8">Are you an entrepreneur or trader in Singapore, Malaysia, or Vietnam? We are expanding our footprint.</p>
+            <p class="mb-10 text-blue-100">Are you an entrepreneur or trader in Singapore, Malaysia, or Vietnam? We are expanding our footprint.</p>
             
-            <div class="bg-white text-slate-900 p-8 rounded-lg shadow-lg">
-                <h3 class="text-xl font-bold mb-4">Application Portal</h3>
-                <p class="text-sm text-gray-500 mb-6">Process your registration fee securely via Stripe.</p>
-                <a href="YOUR_STRIPE_PAYMENT_LINK_HERE" class="inline-block bg-blue-600 text-white px-10 py-3 rounded font-bold hover:bg-blue-700 transition">
+            <div class="bg-white text-slate-900 p-8 md:p-12 rounded-2xl shadow-2xl">
+                <h3 class="text-2xl font-bold mb-4">Application Portal</h3>
+                <p class="text-gray-500 mb-8">Process your registration fee securely via Stripe to begin your evaluation.</p>
+                <a href="YOUR_STRIPE_PAYMENT_LINK_HERE" class="inline-block bg-blue-600 text-white px-12 py-4 rounded-full font-bold hover:bg-blue-700 transform hover:scale-105 transition-all">
                     Apply Now via Stripe
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-gray-400 text-sm">
+    <footer id="contact" class="py-12 bg-slate-900 text-center text-gray-400 text-sm">
+        <p class="mb-2">Contact: support@aurivoncapital.com</p>
         <p>&copy; 2026 Aurivon Capital. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 80 },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 3 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 2 }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+            }
+        });
+    </script>
 </body>
 </html>
