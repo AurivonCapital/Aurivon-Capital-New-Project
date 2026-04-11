@@ -1,95 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recruitment | Aurivon Capital</title>
+    <title>Aurivon Capital | Global Proprietary Trading</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+
     <style>
-        .gradient-text { background: linear-gradient(to right, #ffffff, #64748b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .office-card { background: linear-gradient(145deg, #0f172a, #1e293b); border: 1px solid rgba(255,255,255,0.05); }
-        .chart-container { background: #0f172a; border: 1px solid rgba(255,255,255,0.1); border-radius: 1.5rem; overflow: hidden; }
+        #particles-js { position: absolute; width: 100%; height: 100%; z-index: 1; }
+        .hero-section { 
+            position: relative; 
+            overflow: hidden; 
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                              url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+        }
+        .content-overlay { position: relative; z-index: 10; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #1e40af; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-[#020617] text-white font-sans">
+<body class="bg-slate-50 font-sans text-slate-900">
 
-    <nav class="p-6 flex justify-between items-center border-b border-white/5 sticky top-0 bg-[#020617]/80 backdrop-blur-md z-50">
-        <a href="index.html" class="text-xl font-black italic tracking-tighter uppercase">AURIVON <span class="text-blue-600">CAPITAL</span></a>
-        <a href="index.html" class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-white transition">Back to Home</a>
-    </nav>
+    <nav class="p-6 bg-white border-b flex justify-between items-center sticky top-0 z-50">
+        <div class="text-2xl font-black italic tracking-tighter text-slate-900 flex-shrink-0">
+            AURIVON <span class="text-blue-600">CAPITAL</span>
+        </div>
+        
+        <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-slate-500">
+            <a href="#home" class="text-blue-600 hover:text-blue-800 transition">Home</a>
+            <a href="#market" class="hover:text-slate-900 transition">Market</a>
+            <a href="strategy.html" class="hover:text-slate-900 transition">Strategy</a>
+            <a href="recruitment.html" class="hover:text-slate-900 transition">Recruitment</a>
+            <a href="#contact" class="hover:text-slate-900 transition">Contact</a>
+        </div>
 
-    <section class="py-24 px-6 text-center max-w-5xl mx-auto">
-        <h2 class="text-blue-500 text-[10px] font-bold uppercase tracking-[0.5em] mb-4">Proprietary Recruitment</h2>
-        <h1 class="text-5xl md:text-7xl font-black italic tracking-tighter uppercase mb-6 leading-none">
-            We Provide the <span class="text-blue-600">Capital.</span><br>You Provide the <span class="gradient-text">Grit.</span>
-        </h1>
-        <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            Stop trading your own rent money. Aurivon Capital is looking for disciplined intraday traders to manage our gold and FX liquidity.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="#chart-section" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-full font-black uppercase tracking-widest transition transform hover:scale-105">
-                View Terminal
-            </a>
-            <a href="https://wa.me/YOUR_PHONE_NUMBER" class="border border-slate-700 hover:bg-slate-800 text-white px-10 py-5 rounded-full font-black uppercase tracking-widest transition">
-                Talk to a Desk Head
+        <div class="flex items-center space-x-4">
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hello%20Aurivon%20Capital,%20I%20want%20to%20start%20my%20evaluation." 
+               target="_blank"
+               class="bg-green-600 text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest flex-shrink-0 hover:bg-green-700 transition flex items-center">
+                <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.237 3.483 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.308 1.652zm5.358-6.728c1.516.969 3.074 1.499 4.775 1.5s5.511-2.248 5.511-5.512c.001-3.264-2.246-5.512-5.511-5.512s-5.511 2.248-5.511 5.512c.001 1.761.533 3.396 1.514 4.815l-.395 1.441.436-.118z"/></svg>
+                Global Desk
             </a>
         </div>
-    </section>
+    </nav>
 
-    <section id="chart-section" class="max-w-7xl mx-auto py-12 px-6">
-        <h2 class="text-xs font-bold text-blue-500 uppercase tracking-widest mb-6 text-center">Live Market Terminal (XAUUSD)</h2>
-        <div class="chart-container shadow-2xl">
-            <div id="tradingview_recruitment"></div>
+    <header id="home" class="relative h-[650px] flex items-center justify-center text-white hero-section">
+        <div id="particles-js"></div> 
+        <div class="content-overlay text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Empowering Traders <br class="hidden md:block"> Globally</h1>
+            <p class="text-xl max-w-2xl mx-auto text-slate-100 font-light drop-shadow-lg">Proprietary trading and entrepreneurship opportunities with high-tier capital allocation.</p>
+            <div class="mt-10">
+                <a href="recruitment.html" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-bold transition-all transform hover:scale-105 shadow-xl">
+                    Start Your Evaluation
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="market" class="max-w-7xl mx-auto py-20 px-6">
+        <h2 class="text-3xl font-bold text-blue-900 mb-10">Advanced Terminal</h2>
+        <div class="bg-white p-2 shadow-2xl rounded-2xl border border-slate-200 overflow-hidden">
+            <div id="tradingview_advanced"></div>
             <script type="text/javascript">
                 new TradingView.widget({
                     "width": "100%",
-                    "height": 550,
+                    "height": 600,
                     "symbol": "FX_IDC:XAUUSD",
-                    "interval": "60",
+                    "interval": "D",
                     "timezone": "Asia/Singapore",
-                    "theme": "dark", // Changed to dark to match the recruitment page
+                    "theme": "light",
                     "style": "1",
                     "locale": "en",
-                    "toolbar_bg": "#0f172a",
+                    "toolbar_bg": "#f1f3f6",
                     "enable_publishing": false,
-                    "hide_top_toolbar": false,
-                    "save_image": false,
-                    "container_id": "tradingview_recruitment"
+                    "hide_side_toolbar": false,
+                    "allow_symbol_change": true,
+                    "container_id": "tradingview_advanced"
                 });
             </script>
         </div>
     </section>
 
-    <section class="py-24 bg-slate-900/50 border-y border-white/5 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-xs font-bold text-blue-500 uppercase tracking-widest mb-4">Institutional Growth</h2>
-                    <h3 class="text-4xl font-black italic tracking-tighter uppercase mb-6 leading-tight">
-                        Open an Aurivon <br><span class="text-white">Satellite Trading Floor</span>
-                    </h3>
-                    <p class="text-slate-400 mb-6 leading-relaxed">
-                        Are you an entrepreneur looking to enter the world of global finance? Aurivon Capital offers you the chance to start your own business.
-                    </p>
-                </div>
-                
-                <div class="office-card p-10 rounded-[3rem] shadow-2xl relative overflow-hidden">
-                    <h4 class="text-xl font-black uppercase italic mb-4">Floor Manager Program</h4>
-                    <p class="text-slate-400 text-sm mb-8">
-                        We provide the technology, the risk management, and the massive capital pool.
-                    </p>
-                    <a href="mailto:partners@aurivon.com" class="block text-center bg-white text-slate-900 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-blue-500 hover:text-white transition">
-                        Apply for Partnership
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 text-center text-slate-600 text-[10px] font-bold uppercase tracking-[0.3em]">
-        &copy; 2026 Aurivon Capital Group | Institutional Liquidity Provider
+    <footer id="contact" class="py-20 bg-slate-950 text-center text-slate-500">
+        <div class="text-2xl font-black italic text-white mb-6 uppercase">AURIVON CAPITAL</div>
+        <p class="mb-2">Institutional Liquidity Provider</p>
+        <p>&copy; 2026 Aurivon Capital. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }
+            },
+            "retina_detect": true
+        });
+    </script>
 </body>
 </html>
