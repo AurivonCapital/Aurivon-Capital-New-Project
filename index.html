@@ -10,27 +10,30 @@
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 
     <style>
-        /* Particles container setup */
+        /* Particles container setup over the image */
         #particles-js { 
             position: absolute; 
             width: 100%; 
             height: 100%; 
-            background-color: #0f172a; 
-            z-index: 0; 
+            z-index: 1; 
         }
         
-        /* Ensures text stays above the particles */
+        /* Hero background styling with trading floor image */
+        .hero-section { 
+            position: relative; 
+            overflow: hidden; 
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                              url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+        }
+
         .content-overlay { 
             position: relative; 
             z-index: 10; 
         }
 
-        .hero-section { 
-            position: relative; 
-            overflow: hidden; 
-        }
-
-        /* Custom scrollbar for a premium feel */
+        /* Custom scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #1e40af; border-radius: 10px; }
@@ -60,13 +63,13 @@
         </div>
     </nav>
 
-    <header id="home" class="relative h-[600px] flex items-center justify-center text-white hero-section">
+    <header id="home" class="relative h-[650px] flex items-center justify-center text-white hero-section">
         <div id="particles-js"></div> 
         <div class="content-overlay text-center px-4">
             <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Empowering Traders <br class="hidden md:block"> Globally</h1>
-            <p class="text-xl max-w-2xl mx-auto text-slate-300 font-light">Proprietary trading and entrepreneurship opportunities across Southeast Asia.</p>
+            <p class="text-xl max-w-2xl mx-auto text-slate-100 font-light drop-shadow-lg">Proprietary trading and entrepreneurship opportunities with high-tier capital allocation.</p>
             <div class="mt-10">
-                <a href="#recruitment" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-bold transition-all transform hover:scale-105">
+                <a href="#recruitment" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-bold transition-all transform hover:scale-105 shadow-xl">
                     Start Your Evaluation
                 </a>
             </div>
@@ -92,7 +95,7 @@
                     "interval": "D",
                     "timezone": "Etc/UTC",
                     "theme": "light",
-                    "style": "1", // 1=Candles, 2=Line, 0=Bars
+                    "style": "1",
                     "locale": "en",
                     "toolbar_bg": "#f1f3f6",
                     "enable_publishing": false,
@@ -150,11 +153,11 @@
     <script>
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#ffffff" },
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.4 },
-                "size": { "value": 1 }, 
+                "opacity": { "value": 0.3 },
+                "size": { "value": 2 }, 
                 "line_linked": { 
                     "enable": true, 
                     "distance": 150, 
@@ -162,7 +165,7 @@
                     "opacity": 0.2, 
                     "width": 1 
                 },
-                "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+                "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
             },
             "interactivity": {
                 "detect_on": "canvas",
