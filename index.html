@@ -38,8 +38,31 @@
             margin-top: 1.5rem;
         }
 
+        /* --- MOBILE MENU STYLES (SAFE & NO-SCRIPT) --- */
+        #menu-toggle { display: none; }
+
         @media (max-width: 768px) {
             .info-grid { grid-template-columns: 1fr; }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                border-bottom: 2px solid #e2e8f0;
+                gap: 20px;
+                text-align: center;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+
+            /* This makes the menu appear when you tap the hamburger */
+            #menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
         }
 
         ::-webkit-scrollbar { width: 8px; }
@@ -54,15 +77,27 @@
             AURIVON <span class="text-blue-600">CAPITAL</span>
         </div>
         
-        <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-slate-500">
-            <a href="#home" class="text-blue-600 hover:text-blue-800 transition">Home</a>
-            <a href="#market" class="hover:text-slate-900 transition">Market</a>
-            <a href="course.html" class="hover:text-blue-600 transition">Course</a>
-            <a href="recruitment.html" class="hover:text-slate-900 transition">Recruitment</a>
-            <a href="#contact" class="hover:text-slate-900 transition">Contact</a>
+        <input type="checkbox" id="menu-toggle" class="hidden">
+        
+        <label for="menu-toggle" class="md:hidden cursor-pointer text-slate-900">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </label>
+
+        <div class="nav-links hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-slate-500 items-center">
+            <a href="#home" class="hover:text-blue-600 transition">Home</a>
+            <a href="#market" class="hover:text-blue-600 transition">Market</a>
+            
+            <a href="course.html" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-slate-900 transition-all shadow-md">
+                Course
+            </a>
+
+            <a href="recruitment.html" class="hover:text-blue-600 transition">Recruitment</a>
+            <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
         </div>
 
-        <div class="flex items-center space-x-4">
+        <div class="hidden lg:flex items-center space-x-4">
             <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hello%20Aurivon%20Capital,%20I%20want%20to%20start%20my%20evaluation." 
                target="_blank"
                class="bg-green-600 text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest flex-shrink-0 hover:bg-green-700 transition flex items-center shadow-lg">
@@ -98,31 +133,9 @@
             <div id="tradingview_advanced"></div>
             <script type="text/javascript">
                 new TradingView.widget({
-                    "width": "100%",
-                    "height": 650,
-                    "symbol": "FX_IDC:XAUUSD",
-                    "interval": "D",
-                    "timezone": "Asia/Singapore",
-                    "theme": "light",
-                    "style": "1",
-                    "locale": "en",
-                    "toolbar_bg": "#f1f3f6",
-                    "enable_publishing": false,
-                    "withdateranges": true,
-                    "hide_side_toolbar": false,
-                    "allow_symbol_change": true,
-                    "watchlist": [
-                        "FX_IDC:XAUUSD",
-                        "OANDA:WTICO_USD",
-                        "FX:EURUSD",
-                        "FX:GBPUSD",
-                        "FX:USDJPY",
-                        "BITSTAMP:BTCUSD"
-                    ],
-                    "details": true,
-                    "hotlist": true,
-                    "calendar": true,
-                    "container_id": "tradingview_advanced"
+                    "width": "100%", "height": 650, "symbol": "FX_IDC:XAUUSD", "interval": "D", "timezone": "Asia/Singapore", "theme": "light", "style": "1", "locale": "en", "toolbar_bg": "#f1f3f6", "enable_publishing": false, "withdateranges": true, "hide_side_toolbar": false, "allow_symbol_change": true,
+                    "watchlist": ["FX_IDC:XAUUSD", "OANDA:WTICO_USD", "FX:EURUSD", "FX:GBPUSD", "FX:USDJPY", "BITSTAMP:BTCUSD"],
+                    "details": true, "hotlist": true, "calendar": true, "container_id": "tradingview_advanced"
                 });
             </script>
         </div>
@@ -133,16 +146,7 @@
                 <div class="tradingview-widget-container h-[calc(100%-2rem)]">
                     <div class="tradingview-widget-container__widget h-full"></div>
                     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
-                    {
-                        "interval": "1h",
-                        "width": "100%",
-                        "isTransparent": true,
-                        "height": "100%",
-                        "symbol": "FX_IDC:XAUUSD",
-                        "showIntervalTabs": true,
-                        "locale": "en",
-                        "colorTheme": "light"
-                    }
+                    { "interval": "1h", "width": "100%", "isTransparent": true, "height": "100%", "symbol": "FX_IDC:XAUUSD", "showIntervalTabs": true, "locale": "en", "colorTheme": "light" }
                     </script>
                 </div>
             </div>
@@ -151,27 +155,7 @@
                 <h4 class="text-[11px] font-black uppercase tracking-widest mb-4 text-blue-400">Live Market Spreads</h4>
                 <div class="tradingview-widget-container h-[calc(100%-2rem)]">
                     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-                    {
-                        "colorTheme": "dark",
-                        "dateRange": "12M",
-                        "showChart": false,
-                        "locale": "en",
-                        "width": "100%",
-                        "height": "100%",
-                        "largeChartUrl": "",
-                        "isTransparent": true,
-                        "tabs": [
-                            {
-                                "title": "Majors",
-                                "symbols": [
-                                    { "s": "FX_IDC:XAUUSD" },
-                                    { "s": "FX:EURUSD" },
-                                    { "s": "FX:GBPUSD" },
-                                    { "s": "FX:USDJPY" }
-                                ]
-                            }
-                        ]
-                    }
+                    { "colorTheme": "dark", "dateRange": "12M", "showChart": false, "locale": "en", "width": "100%", "height": "100%", "largeChartUrl": "", "isTransparent": true, "tabs": [{ "title": "Majors", "symbols": [{ "s": "FX_IDC:XAUUSD" }, { "s": "FX:EURUSD" }, { "s": "FX:GBPUSD" }, { "s": "FX:USDJPY" }] }] }
                     </script>
                 </div>
             </div>
@@ -185,36 +169,17 @@
                     <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight mb-4">Master Technical Analysis</h2>
                     <p class="text-blue-600 font-bold mb-6 tracking-widest uppercase text-sm">Featuring: The Japanese Housewife Strategy</p>
                     <p class="text-slate-600 mb-8 leading-relaxed">
-                        Learn how to navigate the FX and Gold markets using time-tested strategies focused on Ichimoku Cloud analysis and Carry Trade fundamentals. Designed for both public learners and in-house staff seeking institutional-grade precision.
+                        Learn how to navigate the FX and Gold markets using time-tested strategies focused on Ichimoku Cloud analysis and Carry Trade fundamentals.
                     </p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-center text-slate-700">
-                            <span class="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs mr-3">✓</span>
-                            Japanese Candlestick Mastery
-                        </div>
-                        <div class="flex items-center text-slate-700">
-                            <span class="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs mr-3">✓</span>
-                            Ichimoku "One Glance" Equilibrium
-                        </div>
-                        <div class="flex items-center text-slate-700">
-                            <span class="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs mr-3">✓</span>
-                            Zen Discipline & Risk Management
-                        </div>
-                    </div>
-                    <a href="course.html" class="inline-block border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-blue-600 hover:text-white transition-all">
-                        View Full Brochure
+                    <a href="course.html" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-slate-900 transition-all shadow-md">
+                        View Full Course Details
                     </a>
                 </div>
-                <div class="bg-white p-8 rounded-3xl shadow-2xl border-l-8 border-blue-600">
-                    <h4 class="text-xl font-bold mb-4">Next Intake: Open</h4>
-                    <p class="text-slate-500 text-sm mb-6">Join our community in Singapore for hands-on training.</p>
-                    <div class="p-4 bg-slate-50 rounded-xl mb-4 border border-slate-100">
-                        <span class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Duration</span>
-                        <span class="font-bold">8 Comprehensive Modules</span>
-                    </div>
-                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                        <span class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Access</span>
-                        <span class="font-bold">Public & In-House Staff</span>
+                <div class="bg-white p-8 rounded-3xl shadow-2xl border-l-8 border-blue-600 text-center">
+                    <h4 class="text-xl font-bold mb-4">Trading Intake: Open</h4>
+                    <p class="text-slate-500 text-sm mb-6">Singapore-based institutional training for retail traders.</p>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 font-bold">
+                        8 Comprehensive Modules
                     </div>
                 </div>
             </div>
@@ -224,19 +189,11 @@
     <section id="recruitment" class="bg-blue-900 text-white py-24 px-6 relative">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl font-bold mb-6 uppercase">Join Aurivon Capital S.E.A.</h2>
-            <p class="mb-12 text-blue-100 text-lg">We provide the capital, you provide the edge. Seeking traders in Singapore, Malaysia, and Vietnam.</p>
-            
             <div class="bg-white text-slate-900 p-10 md:p-16 rounded-3xl shadow-2xl border-t-8 border-blue-500">
-                <h3 class="text-3xl font-black italic mb-4">APPLICATION PORTAL</h3>
-                <p class="text-gray-500 mb-10 max-w-md mx-auto">Complete your registration and secure your evaluation account via Stripe.</p>
-                
+                <h3 class="text-3xl font-black italic mb-4 uppercase">Application Portal</h3>
                 <a href="recruitment.html" class="inline-block bg-blue-600 text-white px-14 py-5 rounded-full font-black uppercase tracking-widest hover:bg-slate-900 transform hover:-translate-y-1 transition-all shadow-lg">
                     Go to Recruitment Page
                 </a>
-                
-                <div class="mt-8 flex justify-center space-x-6">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" class="h-6 opacity-30" alt="Stripe">
-                </div>
             </div>
         </div>
     </section>
@@ -244,7 +201,6 @@
     <footer id="contact" class="py-20 bg-slate-950 text-center text-slate-500">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-2xl font-black italic text-white mb-6 uppercase tracking-tighter">AURIVON CAPITAL</div>
-            <p class="mb-4">Global Trading Solutions for Modern Markets.</p>
             <p class="text-blue-400 font-medium mb-8">support@aurivoncapital.com</p>
             <div class="border-t border-slate-800 pt-8 text-xs uppercase tracking-widest">
                 &copy; 2026 Aurivon Capital. All Rights Reserved.
@@ -260,26 +216,13 @@
                 "shape": { "type": "circle" },
                 "opacity": { "value": 1, "random": true },
                 "size": { "value": 1, "random": true }, 
-                "line_linked": { 
-                    "enable": true, 
-                    "distance": 150, 
-                    "color": "#ffffff", 
-                    "opacity": 0.2, 
-                    "width": 1 
-                },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
                 "move": { "enable": true, "speed": 1.2, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
             },
             "interactivity": {
                 "detect_on": "canvas",
-                "events": { 
-                    "onhover": { "enable": true, "mode": "grab" }, 
-                    "onclick": { "enable": true, "mode": "push" }, 
-                    "resize": true 
-                },
-                "modes": { 
-                    "grab": { "distance": 200, "line_linked": { "opacity": 0.8 } }, 
-                    "push": { "particles_nb": 4 } 
-                }
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "grab": { "distance": 200, "line_linked": { "opacity": 0.8 } }, "push": { "particles_nb": 4 } }
             },
             "retina_detect": true
         });
