@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Trading Suite | Aurivon Capital</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        #particles-js { position: absolute; width: 100%; height: 100%; z-index: 1; }
+        .hero-section { 
+            position: relative; 
+            overflow: hidden; 
+            /* Background Opacity at 70% */
+            background: linear-gradient(rgba(10, 14, 18, 0.7), rgba(10, 14, 18, 0.7)), 
+                        url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+        }
+        .content-overlay { position: relative; z-index: 10; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 font-sans text-slate-200">
+
+    <nav class="p-6 bg-white border-b flex justify-between items-center sticky top-0 z-50">
+        <div class="text-2xl font-black italic tracking-tighter text-slate-900 flex-shrink-0">
+            AURIVON <span class="text-blue-600">CAPITAL</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-slate-500 items-center">
+            <a href="index.html" class="hover:text-blue-600 transition">Home</a>
+            <a href="course.html" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-slate-900 transition-all">Course</a>
+            <a href="recruitment.html" class="hover:text-blue-600 transition">Recruitment</a>
+            <a href="contact.html" class="hover:text-blue-600 transition">Contact</a>
+        </div>
+    </nav>
+
+    <header class="relative h-[600px] flex items-center justify-center text-center hero-section">
+        <div id="particles-js"></div> 
+        <div class="content-overlay px-6">
+            <h2 class="text-blue-500 font-bold tracking-[0.3em] uppercase text-sm mb-4">Aurivon Business Hub</h2>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 text-white uppercase">The Trading Suite</h1>
+            <p class="text-xl text-slate-100 max-w-2xl mx-auto leading-relaxed font-light">
+                Singapore’s premier co-working ecosystem engineered for Proprietary Traders and Market Professionals.
+            </p>
+        </div>
+    </header>
+
+    <section class="max-w-7xl mx-auto py-24 px-6">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass-card p-10 rounded-2xl border-l-4 border-blue-600">
+                <i class="fas fa-microchip text-blue-500 text-4xl mb-6"></i>
+                <h3 class="text-xl font-bold mb-4 text-white uppercase">Infrastructure</h3>
+                <p class="text-slate-400 leading-relaxed">Ultra-low latency fiber backbone engineered for split-second execution.</p>
+            </div>
+            <div class="glass-card p-10 rounded-2xl border-l-4 border-blue-600">
+                <i class="fas fa-users text-blue-500 text-4xl mb-6"></i>
+                <h3 class="text-xl font-bold mb-4 text-white uppercase">Community</h3>
+                <p class="text-slate-400 leading-relaxed">An elite network of FX and Gold veterans sharing real-time alpha.</p>
+            </div>
+            <div class="glass-card p-10 rounded-2xl border-l-4 border-blue-600">
+                <i class="fas fa-chart-line text-blue-500 text-4xl mb-6"></i>
+                <h3 class="text-xl font-bold mb-4 text-white uppercase">Opportunity</h3>
+                <p class="text-slate-400 leading-relaxed">Direct access to Aurivon Capital's performance-based hiring and capital funding.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 text-center">
+        <a href="mailto:support@aurivoncapital.com" class="bg-blue-600 text-white px-12 py-5 rounded-full font-black uppercase tracking-widest hover:bg-white hover:text-blue-600 transition-all shadow-xl">
+            Join the Waitlist
+        </a>
+    </section>
+
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 2, "random": true }, 
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 1.2, "direction": "none", "random": true, "out_mode": "out" }
+            },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" } } }
+        });
+    </script>
+</body>
+</html>
