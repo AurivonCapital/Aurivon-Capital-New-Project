@@ -22,10 +22,11 @@
             background-position: center;
         }
 
-        /* OFFICE SECTION: Using your uploaded professional photo */
+        /* OFFICE SECTION: Fixed to use your .png file */
         .office-section {
             position: relative;
-            background-image: url('office-background.jpg'); /* Make sure filename matches your file in GitHub */
+            /* Using the filename you provided */
+            background-image: url('office-background.png'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -83,7 +84,8 @@
     </header>
 
     <section class="office-section py-32 px-6">
-        <div class="office-overlay"></div> <div class="relative z-10 max-w-7xl mx-auto">
+        <div class="office-overlay"></div> 
+        <div class="relative z-10 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="glass-card p-10 rounded-2xl border-l-4 border-blue-600 shadow-2xl">
                     <i class="fas fa-microchip text-blue-500 text-4xl mb-6"></i>
