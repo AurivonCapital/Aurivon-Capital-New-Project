@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Trading Suite | Aurivon Capital Co-Working</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark-surface: #12161b;
+            --bg-black: #0a0e12;
+            --text-light: #f4f4f4;
+            --accent-blue: #00d2ff; /* Represents the fiber/tech glow */
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-light);
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 5% 60px;
+            text-align: center;
+            background: linear-gradient(rgba(10,14,18,0.8), rgba(10,14,18,0.8)), 
+                        url('https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&q=80&w=1920'); /* Office placeholder */
+            background-size: cover;
+            background-position: center;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .hero h2 {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Business Stats/Features */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding: 40px 5%;
+            background: var(--dark-surface);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item i {
+            color: var(--gold);
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Main Content */
+        .content-section {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 5%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--dark-surface);
+            padding: 40px;
+            border-radius: 4px;
+            border-left: 3px solid var(--gold);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            background: #1a2027;
+        }
+
+        .card h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        /* Pricing/Access Section */
+        .pricing {
+            background: #0f1318;
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .price-box {
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .price-tag {
+            font-size: 3rem;
+            color: var(--gold);
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .cta-btn {
+            background: var(--gold);
+            color: black;
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 800;
+            display: inline-block;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h2>Aurivon Business Hub</h2>
+        <h1>The Trading Suite</h1>
+        <p>Ultra-Low Latency Co-Working for Professional FX & Gold Traders</p>
+    </section>
+
+    <div class="stats-bar">
+        <div class="stat-item">
+            <i class="fas fa-bolt"></i>
+            <strong>1ms Latency</strong>
+            <p>Direct Fiber Access</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-shield-alt"></i>
+            <strong>Secure Access</strong>
+            <p>24/7 Biometric Entry</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-microchip"></i>
+            <strong>Workstations</strong>
+            <p>Dual-Monitor Ready</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="grid">
+            <div class="card">
+                <h3>Institutional Infrastructure</h3>
+                <p>We’ve eliminated the bottleneck. Our Singapore facility is engineered with a dedicated fiber backbone specifically for trade execution, reducing slippage and ensuring your orders hit the market first.</p>
+            </div>
+            <div class="card">
+                <h3>Veteran Alpha</h3>
+                <p>Don't trade in isolation. Join a community of veteran FX and Gold specialists. Share strategies, discuss market sentiment, and sharpen your edge in a professional environment.</p>
+            </div>
+            <div class="card">
+                <h3>Proprietary Funding</h3>
+                <p>Consistent traders aren't just renters—they're potential partners. Residents get direct access to Aurivon Capital’s performance-based hiring and capital funding pipelines.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <h2>Secure Your Desk</h2>
+        <div class="price-box">
+            <h3>Trader Day Pass</h3>
+            <div class="price-tag">$35<span>/day</span></div>
+            <p style="margin-bottom: 25px; color: #b0b3b8;">High-speed fiber, ergonomic desk, and unlimited premium coffee.</p>
+            <a href="#" class="cta-btn">Join the Waitlist</a>
+        </div>
+    </section>
+
+</body>
+</html>
