@@ -11,46 +11,49 @@
 
     <style>
         #particles-js { position: absolute; width: 100%; height: 100%; z-index: 1; }
+        
+        /* Hero Section Styling */
         .hero-section { 
             position: relative; 
             overflow: hidden; 
-            /* Background Opacity at 70% */
             background: linear-gradient(rgba(10, 14, 18, 0.7), rgba(10, 14, 18, 0.7)), 
                         url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=2070');
             background-size: cover;
             background-position: center;
         }
-        .content-overlay { position: relative; z-index: 10; }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* New section for office background behind cards */
+
+        /* OFFICE SECTION: Using your uploaded professional photo */
         .office-section {
             position: relative;
-            background-image: url('image_10.png');
+            background-image: url('office-background.jpg'); /* Make sure filename matches your file in GitHub */
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Optional: for a parallax effect */
+            background-attachment: fixed;
         }
-        
-        /* 70% opacity overlay layer for the office section */
+
+        /* 70% Opacity Dark Overlay for the Office Image */
         .office-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(10, 14, 18, 0.7); /* Same dark base, 70% opaque */
+            background-color: rgba(10, 14, 18, 0.7); 
             z-index: 1;
         }
 
-        /* Ensure content in office section is above the overlay */
-        .office-section-content {
-            position: relative;
-            z-index: 10;
+        .content-overlay { position: relative; z-index: 10; }
+
+        /* Glass Cards for Trading Features */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
         }
     </style>
 </head>
@@ -62,7 +65,7 @@
         </div>
         <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-slate-500 items-center">
             <a href="index.html" class="hover:text-blue-600 transition">Home</a>
-            <a href="course.html" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-slate-900 transition-all">Course</a>
+            <a href="course.html" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-slate-900 transition-all shadow-md">Course</a>
             <a href="recruitment.html" class="hover:text-blue-600 transition">Recruitment</a>
             <a href="contact.html" class="hover:text-blue-600 transition">Contact</a>
         </div>
@@ -72,40 +75,46 @@
         <div id="particles-js"></div> 
         <div class="content-overlay px-6">
             <h2 class="text-blue-500 font-bold tracking-[0.3em] uppercase text-sm mb-4">Aurivon Business Hub</h2>
-            <h1 class="text-5xl md:text-7xl font-black mb-6 text-white uppercase">The Trading Suite</h1>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 text-white uppercase tracking-tight">The Trading Suite</h1>
             <p class="text-xl text-slate-100 max-w-2xl mx-auto leading-relaxed font-light">
                 Singapore’s premier co-working ecosystem engineered for Proprietary Traders and Market Professionals.
             </p>
         </div>
     </header>
 
-    <section class="office-section py-24 px-6">
-        <div class="office-overlay"></div> <div class="office-section-content max-w-7xl mx-auto">
+    <section class="office-section py-32 px-6">
+        <div class="office-overlay"></div> <div class="relative z-10 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card p-10 rounded-2xl border-l-4 border-blue-600">
+                <div class="glass-card p-10 rounded-2xl border-l-4 border-blue-600 shadow-2xl">
                     <i class="fas fa-microchip text-blue-500 text-4xl mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4 text-white uppercase">Infrastructure</h3>
-                    <p class="text-slate-400 leading-relaxed">Ultra-low latency fiber backbone engineered for split-second execution.</p>
+                    <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-wider">Infrastructure</h3>
+                    <p class="text-slate-300 leading-relaxed">Ultra-low latency fiber backbone engineered for split-second execution.</p>
                 </div>
-                <div class="glass-card p-10 rounded-2xl border-l-4 border-blue-600">
+
+                <div class="glass-card p-10 rounded-2xl border-l-4 border-blue-600 shadow-2xl">
                     <i class="fas fa-users text-blue-500 text-4xl mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4 text-white uppercase">Community</h3>
-                    <p class="text-slate-400 leading-relaxed">An elite network of FX and Gold veterans sharing real-time alpha.</p>
+                    <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-wider">Community</h3>
+                    <p class="text-slate-300 leading-relaxed">An elite network of FX and Gold veterans sharing real-time alpha.</p>
                 </div>
-                <div class="glass-card p-10 rounded-2xl border-l-4 border-blue-600">
+
+                <div class="glass-card p-10 rounded-2xl border-l-4 border-blue-600 shadow-2xl">
                     <i class="fas fa-chart-line text-blue-500 text-4xl mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4 text-white uppercase">Opportunity</h3>
-                    <p class="text-slate-400 leading-relaxed">Direct access to Aurivon Capital's performance-based hiring and capital funding.</p>
+                    <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-wider">Opportunity</h3>
+                    <p class="text-slate-300 leading-relaxed">Direct capital funding and performance-led hiring.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 text-center">
-        <a href="mailto:support@aurivoncapital.com" class="bg-blue-600 text-white px-12 py-5 rounded-full font-black uppercase tracking-widest hover:bg-white hover:text-blue-600 transition-all shadow-xl">
+    <section class="py-24 text-center bg-slate-950">
+        <a href="mailto:support@aurivoncapital.com" class="inline-block bg-blue-600 text-white px-14 py-5 rounded-full font-black uppercase tracking-widest hover:bg-white hover:text-blue-600 transition-all shadow-2xl transform hover:scale-105">
             Join the Waitlist
         </a>
     </section>
+
+    <footer class="py-12 border-t border-slate-900 text-center text-slate-500 text-xs uppercase tracking-widest">
+        &copy; 2026 Aurivon Capital. All Rights Reserved.
+    </footer>
 
     <script>
         particlesJS('particles-js', {
