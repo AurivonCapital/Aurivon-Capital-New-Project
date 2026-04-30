@@ -10,47 +10,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        #particles-js { position: absolute; width: 100%; height: 100%; z-index: 1; }
+        #particles-js { position: absolute; width: 100%; height: 100%; z-index: 2; }
         
+        /* The main hero container */
         .hero-section { 
             position: relative; 
             overflow: hidden; 
-            /* background-image removed from here and moved to a separate layer for opacity control */
+            background-color: #0a0e12; /* Fallback dark background */
         }
 
         /* 
-         *  BACKGROUND IMAGE LAYER
-         *  This new layer allows us to set the image with specific opacity (70%)
-         *  without affecting the hero text and content.
-         */
+           70% OPACITY BACKGROUND IMAGE 
+           This layer handles the image specifically.
+        */
         .hero-background-layer {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            /* 70% opacity for the background image */
-            opacity: 0.7;
-            /* Reference to your provided Eightcap image verbatim */
             background-image: url('image_1.png');
             background-size: cover;
             background-position: center;
+            opacity: 0.7; /* Your requested 70% opacity */
             z-index: 1;
         }
-        
-        /* 
-         *  70% DARK OVERLAY
-         *  Matches the opacity of the image, keeping the overall balance.
-         */
-        .dark-overlay {
+
+        /* Dark overlay to ensure text remains readable */
+        .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(10, 14, 18, 0.7);
-            z-index: 2; /* Sits on top of the image */
+            background: rgba(10, 14, 18, 0.4); /* Slight darkening */
+            z-index: 2;
         }
+
+        .content-overlay { position: relative; z-index: 10; }
 
         .platform-card {
             background: rgba(255, 255, 255, 0.03);
@@ -71,12 +68,6 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        /* Content layer is explicitly set above the background and overlay */
-        .content-overlay { 
-            position: relative; 
-            z-index: 10; 
-        }
-        
         .eightcap-badge {
             background: #2563eb;
             color: white;
@@ -127,19 +118,15 @@
         </div>
     </nav>
 
-    <!-- IB Hero Header -->
-    <header class="relative h-[550px] flex items-center justify-center text-center hero-section">
-        
-        <!-- Background Layer with 70% Opacity -->
+    <!-- Hero Header with image_1.png -->
+    <header class="relative h-[600px] flex items-center justify-center text-center hero-section">
+        <!-- 70% Opacity Image Layer -->
         <div class="hero-background-layer"></div>
-        
-        <!-- Dark Overlay -->
-        <div class="dark-overlay"></div>
-        
+        <!-- Tint Overlay -->
+        <div class="hero-overlay"></div>
         <!-- Particles -->
         <div id="particles-js"></div> 
         
-        <!-- Hero Content (Above all layers) -->
         <div class="content-overlay px-6">
             <div class="mb-6 flex justify-center items-center space-x-4">
                 <span class="h-[1px] w-12 bg-blue-500"></span>
@@ -211,7 +198,6 @@
     <section class="py-20 bg-slate-900/50 border-t border-slate-800">
         <div class="max-w-4xl mx-auto text-center px-6">
             <div class="flex justify-center mb-8">
-                 <!-- Placeholder for Eightcap Logo -->
                  <div class="bg-white/10 px-6 py-3 rounded-lg border border-white/10">
                     <span class="text-white font-black italic tracking-widest text-lg">EIGHTCAP <span class="text-blue-500">PARTNER</span></span>
                  </div>
@@ -235,14 +221,13 @@
     <script>
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#2563eb" },
-                "opacity": { "value": 0.2, "random": true },
+                "opacity": { "value": 0.3, "random": true },
                 "size": { "value": 2, "random": true }, 
                 "line_linked": { "enable": true, "distance": 150, "color": "#2563eb", "opacity": 0.1, "width": 1 },
-                "move": { "enable": true, "speed": 0.8, "direction": "none", "random": true, "out_mode": "out" }
-            },
-            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" } } }
+                "move": { "enable": true, "speed": 1.2, "direction": "none", "random": true, "out_mode": "out" }
+            }
         });
     </script>
 </body>
