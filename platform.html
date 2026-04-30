@@ -15,10 +15,41 @@
         .hero-section { 
             position: relative; 
             overflow: hidden; 
-            background: linear-gradient(rgba(10, 14, 18, 0.85), rgba(10, 14, 18, 0.85)), 
-                        url('https://images.unsplash.com/photo-1611974708305-66bb7a066e73?auto=format&fit=crop&q=80&w=2070');
+            /* background-image removed from here and moved to a separate layer for opacity control */
+        }
+
+        /* 
+         *  BACKGROUND IMAGE LAYER
+         *  This new layer allows us to set the image with specific opacity (70%)
+         *  without affecting the hero text and content.
+         */
+        .hero-background-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 70% opacity for the background image */
+            opacity: 0.7;
+            /* Reference to your provided Eightcap image verbatim */
+            background-image: url('image_1.png');
             background-size: cover;
             background-position: center;
+            z-index: 1;
+        }
+        
+        /* 
+         *  70% DARK OVERLAY
+         *  Matches the opacity of the image, keeping the overall balance.
+         */
+        .dark-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 14, 18, 0.7);
+            z-index: 2; /* Sits on top of the image */
         }
 
         .platform-card {
@@ -40,7 +71,11 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .content-overlay { position: relative; z-index: 10; }
+        /* Content layer is explicitly set above the background and overlay */
+        .content-overlay { 
+            position: relative; 
+            z-index: 10; 
+        }
         
         .eightcap-badge {
             background: #2563eb;
@@ -94,7 +129,17 @@
 
     <!-- IB Hero Header -->
     <header class="relative h-[550px] flex items-center justify-center text-center hero-section">
+        
+        <!-- Background Layer with 70% Opacity -->
+        <div class="hero-background-layer"></div>
+        
+        <!-- Dark Overlay -->
+        <div class="dark-overlay"></div>
+        
+        <!-- Particles -->
         <div id="particles-js"></div> 
+        
+        <!-- Hero Content (Above all layers) -->
         <div class="content-overlay px-6">
             <div class="mb-6 flex justify-center items-center space-x-4">
                 <span class="h-[1px] w-12 bg-blue-500"></span>
