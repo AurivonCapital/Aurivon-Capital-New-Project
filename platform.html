@@ -10,24 +10,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* This ensures the particles stay behind the text but in front of the image */
         #particles-js { 
             position: absolute; 
             width: 100%; 
             height: 100%; 
-            z-index: 3; 
+            z-index: 2; 
         }
         
+        /* Changed background to white base */
         .hero-section { 
             position: relative; 
             overflow: hidden; 
-            background-color: #0a0e12; 
+            background-color: #ffffff; 
         }
 
         /* 
            70% OPACITY BACKGROUND IMAGE 
-           We use a pseudo-element (::before) to pin the image to the background 
-           at exactly 0.7 opacity without affecting the text on top.
+           Applied to a white background to make the image "pop"
         */
         .hero-section::before {
             content: "";
@@ -36,34 +35,23 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('image_1.png'); /* Verifying file name: image_1.png */
+            background-image: url('image_1.png'); 
             background-size: cover;
             background-position: center;
-            opacity: 0.7; /* 70% opacity applied here */
+            opacity: 0.7; 
             z-index: 1;
         }
 
-        /* Dark tint to help the white text "pop" */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 14, 18, 0.3); 
-            z-index: 2;
-        }
-
-        /* Content layer forced to the very front */
+        /* Content layer - Text colors changed to dark for visibility on white */
         .content-overlay { 
             position: relative; 
             z-index: 10; 
         }
 
         .platform-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
@@ -74,9 +62,9 @@
 
         .platform-card:hover {
             transform: translateY(-12px);
-            background: rgba(255, 255, 255, 0.08);
+            background: #ffffff;
             border-color: #2563eb;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         .eightcap-badge {
@@ -94,7 +82,7 @@
         .cta-button {
             background: transparent;
             border: 1px solid #2563eb;
-            color: #3b82f6;
+            color: #2563eb;
             text-align: center;
             padding: 12px;
             border-radius: 8px;
@@ -111,7 +99,7 @@
         }
     </style>
 </head>
-<body class="bg-slate-950 font-sans text-slate-200">
+<body class="bg-slate-50 font-sans text-slate-900">
 
     <!-- Navigation Bar -->
     <nav class="p-6 bg-white border-b flex justify-between items-center sticky top-0 z-50">
@@ -129,22 +117,22 @@
         </div>
     </nav>
 
-    <!-- Hero Header with image_1.png at 70% opacity -->
+    <!-- Hero Header with image_1.png at 70% opacity on White Base -->
     <header class="relative h-[600px] flex items-center justify-center text-center hero-section">
         
-        <div class="hero-overlay"></div>
         <div id="particles-js"></div> 
         
         <div class="content-overlay px-6">
             <div class="mb-6 flex justify-center items-center space-x-4">
-                <span class="h-[1px] w-12 bg-blue-500"></span>
-                <span class="text-blue-500 font-bold tracking-[0.3em] uppercase text-xs">Official Eightcap Partner</span>
-                <span class="h-[1px] w-12 bg-blue-500"></span>
+                <span class="h-[1px] w-12 bg-blue-600"></span>
+                <span class="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs">Official Eightcap Partner</span>
+                <span class="h-[1px] w-12 bg-blue-600"></span>
             </div>
-            <h1 class="text-5xl md:text-7xl font-black mb-6 text-white uppercase tracking-tight leading-tight">
+            <!-- Changed text to slate-900 for visibility -->
+            <h1 class="text-5xl md:text-7xl font-black mb-6 text-slate-900 uppercase tracking-tight leading-tight">
                 Premium Trading <br><span class="text-blue-600">Infrastructure</span>
             </h1>
-            <p class="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed font-light">
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
                 As an authorized Introducing Broker for Eightcap, Aurivon Capital provides you with direct access to award-winning liquidity and industry-leading platforms.
             </p>
         </div>
@@ -153,7 +141,7 @@
     <!-- Platform Selection Grid -->
     <section class="py-24 px-6 max-w-7xl mx-auto relative z-10">
         <div class="text-center mb-16">
-            <h2 class="text-3xl font-black uppercase tracking-tight text-white mb-2">Powered By Eightcap</h2>
+            <h2 class="text-3xl font-black uppercase tracking-tight text-slate-900 mb-2">Powered By Eightcap</h2>
             <p class="text-slate-500 text-xs font-bold uppercase tracking-[0.2em]">Choose your preferred gateway to the markets</p>
         </div>
 
@@ -163,8 +151,8 @@
             <a href="#" class="platform-card p-8 rounded-3xl group">
                 <div>
                     <div class="eightcap-badge">EIGHTCAP × TRADINGVIEW</div>
-                    <h3 class="text-xl font-black text-white uppercase mb-4">TradingView</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed mb-8">Access world-class charting and join a global community of traders. Trade directly from your charts via Eightcap execution.</p>
+                    <h3 class="text-xl font-black text-slate-900 uppercase mb-4">TradingView</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-8">Access world-class charting and join a global community of traders. Trade directly from your charts via Eightcap execution.</p>
                 </div>
                 <div class="cta-button">Connect TradingView</div>
             </a>
@@ -173,8 +161,8 @@
             <a href="#" class="platform-card p-8 rounded-3xl group">
                 <div>
                     <div class="eightcap-badge">EIGHTCAP × TRADELOCKER</div>
-                    <h3 class="text-xl font-black text-white uppercase mb-4">TradeLocker</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed mb-8">The modern alternative. Optimized for high-performance mobile trading and seamless integration with our Prop tools.</p>
+                    <h3 class="text-xl font-black text-slate-900 uppercase mb-4">TradeLocker</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-8">The modern alternative. Optimized for high-performance mobile trading and seamless integration with our Prop tools.</p>
                 </div>
                 <div class="cta-button">Access TradeLocker</div>
             </a>
@@ -183,8 +171,8 @@
             <a href="#" class="platform-card p-8 rounded-3xl group">
                 <div>
                     <div class="eightcap-badge">EIGHTCAP × MT4</div>
-                    <h3 class="text-xl font-black text-white uppercase mb-4">MetaTrader 4</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed mb-8">The legendary choice for FX specialists. Reliable, customizable, and perfect for running Expert Advisors (EAs).</p>
+                    <h3 class="text-xl font-black text-slate-900 uppercase mb-4">MetaTrader 4</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-8">The legendary choice for FX specialists. Reliable, customizable, and perfect for running Expert Advisors (EAs).</p>
                 </div>
                 <div class="cta-button">Download MT4</div>
             </a>
@@ -193,8 +181,8 @@
             <a href="#" class="platform-card p-8 rounded-3xl group">
                 <div>
                     <div class="eightcap-badge">EIGHTCAP × MT5</div>
-                    <h3 class="text-xl font-black text-white uppercase mb-4">MetaTrader 5</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed mb-8">A multi-asset powerhouse. Enhanced features for Gold (XAUUSD) trading and advanced algorithmic strategies.</p>
+                    <h3 class="text-xl font-black text-slate-900 uppercase mb-4">MetaTrader 5</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-8">A multi-asset powerhouse. Enhanced features for Gold (XAUUSD) trading and advanced algorithmic strategies.</p>
                 </div>
                 <div class="cta-button">Download MT5</div>
             </a>
@@ -202,26 +190,9 @@
         </div>
     </section>
 
-    <!-- Partner Footer Info -->
-    <section class="py-20 bg-slate-900/50 border-t border-slate-800">
-        <div class="max-w-4xl mx-auto text-center px-6">
-            <div class="flex justify-center mb-8">
-                 <div class="bg-white/10 px-6 py-3 rounded-lg border border-white/10">
-                    <span class="text-white font-black italic tracking-widest text-lg">EIGHTCAP <span class="text-blue-500">PARTNER</span></span>
-                 </div>
-            </div>
-            <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-4">Why Trade with Aurivon x Eightcap?</h4>
-            <div class="grid md:grid-cols-3 gap-8 text-slate-400 text-[11px] font-bold uppercase tracking-widest">
-                <div class="p-4 border border-white/5 rounded-xl">ASIC / SCB Regulated</div>
-                <div class="p-4 border border-white/5 rounded-xl">Institutional Liquidity</div>
-                <div class="p-4 border border-white/5 rounded-xl">Dedicated IB Support</div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 text-center text-slate-500 text-[10px] uppercase tracking-widest leading-relaxed">
+    <footer class="py-12 text-center text-slate-500 text-[10px] uppercase tracking-widest leading-relaxed border-t">
         <p class="mb-2">&copy; 2026 Aurivon Capital. All Rights Reserved.</p>
-        <p class="max-w-2xl mx-auto px-6 opacity-50">
+        <p class="max-w-2xl mx-auto px-6 opacity-70">
             Aurivon Capital is an authorized Introducing Broker for Eightcap. Trading derivatives involves significant risk.
         </p>
     </footer>
@@ -231,10 +202,10 @@
             "particles": {
                 "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#2563eb" },
-                "opacity": { "value": 0.3, "random": true },
+                "opacity": { "value": 0.2, "random": true },
                 "size": { "value": 2, "random": true }, 
-                "line_linked": { "enable": true, "distance": 150, "color": "#2563eb", "opacity": 0.1, "width": 1 },
-                "move": { "enable": true, "speed": 1.2, "direction": "none", "random": true, "out_mode": "out" }
+                "line_linked": { "enable": true, "distance": 150, "color": "#2563eb", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "out_mode": "out" }
             }
         });
     </script>
