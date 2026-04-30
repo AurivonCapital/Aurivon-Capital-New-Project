@@ -10,44 +10,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        #particles-js { position: absolute; width: 100%; height: 100%; z-index: 2; }
+        /* This ensures the particles stay behind the text but in front of the image */
+        #particles-js { 
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+            z-index: 3; 
+        }
         
-        /* The main hero container */
         .hero-section { 
             position: relative; 
             overflow: hidden; 
-            background-color: #0a0e12; /* Fallback dark background */
+            background-color: #0a0e12; 
         }
 
         /* 
            70% OPACITY BACKGROUND IMAGE 
-           This layer handles the image specifically.
+           We use a pseudo-element (::before) to pin the image to the background 
+           at exactly 0.7 opacity without affecting the text on top.
         */
-        .hero-background-layer {
+        .hero-section::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('image_1.png');
+            background-image: url('image_1.png'); /* Verifying file name: image_1.png */
             background-size: cover;
             background-position: center;
-            opacity: 0.7; /* Your requested 70% opacity */
+            opacity: 0.7; /* 70% opacity applied here */
             z-index: 1;
         }
 
-        /* Dark overlay to ensure text remains readable */
+        /* Dark tint to help the white text "pop" */
         .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 14, 18, 0.4); /* Slight darkening */
+            background: rgba(10, 14, 18, 0.3); 
             z-index: 2;
         }
 
-        .content-overlay { position: relative; z-index: 10; }
+        /* Content layer forced to the very front */
+        .content-overlay { 
+            position: relative; 
+            z-index: 10; 
+        }
 
         .platform-card {
             background: rgba(255, 255, 255, 0.03);
@@ -118,13 +129,10 @@
         </div>
     </nav>
 
-    <!-- Hero Header with image_1.png -->
+    <!-- Hero Header with image_1.png at 70% opacity -->
     <header class="relative h-[600px] flex items-center justify-center text-center hero-section">
-        <!-- 70% Opacity Image Layer -->
-        <div class="hero-background-layer"></div>
-        <!-- Tint Overlay -->
+        
         <div class="hero-overlay"></div>
-        <!-- Particles -->
         <div id="particles-js"></div> 
         
         <div class="content-overlay px-6">
